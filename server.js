@@ -9,7 +9,14 @@ dotenv.config();
 const app = express();
 
 // cors 설정
-app.use(cors());
+// app.use(cors());
+
+const corsOption = {
+  origin: process.env.CLIENT_URL,
+  credentials: true,
+};
+
+app.use(cors(corsOption))
 
 // JSON 설정
 app.use(express.json());
